@@ -58,7 +58,7 @@ function App() {
     const res = await fetch(downloadUrl);
     const blob = await res.blob();
     const fileName = `recording-${Date.now()}.webm`;
-    const { data, error } = await supabase.storage.from('videos').upload(fileName, blob, {
+  const { error } = await supabase.storage.from('videos').upload(fileName, blob, {
       cacheControl: '3600',
       upsert: false,
       contentType: 'video/webm',
